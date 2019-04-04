@@ -1,0 +1,34 @@
+<body>
+    {{> navbar}}
+</body>
+
+<template name='navbar'>
+    <nav class='navbar navbar-light bg-light'>
+        <div class="container">
+            <a href="/" class='navbar-brand mr-auto'>Meteor Medium</a>
+            <!-- N'afficher aucun btn quand la page charge-->
+            {{#unless loggingIn}}
+            <!-- Cette condition IF permet d'afficher seulement le btn approprié suivant le statut connnecté/déconnecté-->
+            {{#if currentUser}}
+                <span class='navbar-text mr-2'>
+                    {{currentUser.profile.pseudo}}
+                </span>
+                <button class='btn btn-outline-secondary js-logout'>Deconnexion</button>
+            {{else}}
+                <button class='btn btn-success js-open-login-modal'>Connexion</button>
+            {{/if}}
+            {{/unless}}
+        </div>
+    </nav>
+</template>
+
+<!-- Template du formulaire de connexion loginModal + atForm-->
+<template name='loginModal'>
+    <div class='modal fade'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                {{>atForm}}
+            </div>
+        </div>
+    </div>
+</template>
