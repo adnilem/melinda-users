@@ -17,3 +17,15 @@ FlowRouter.route('/', {
         BlazeLayout.render('navbar');
     }
 });
+
+FlowRouter.route('/home', {
+    action() {
+        BlazeLayout.render('layout');
+    }
+});
+
+FlowRouter.route('/article', {
+    action() {
+        BlazeLayout.render('article');
+    }
+});
